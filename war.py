@@ -16,4 +16,15 @@ def play_war(deck):
     p2_stash = []
 
     round = 1
-    
+    while p1_cards and p2_cards:
+        p1_card = p1_cards.pop()
+        p2_card = p1_cards.pop()
+
+        if p1_card == p2_card:
+            p1_stash.extend([p1_card]+p1_cards[-3:])
+            p1_cards = p1_cards[:-3]
+            p1_cards.append(p1_stash.pop())
+
+            p2_stash.extend([p2_card]+p2_cards[-3:])
+            p2_cards = p2_cards[:-3]
+            p2_cards.append(p2_stash.pop())
